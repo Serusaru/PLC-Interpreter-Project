@@ -34,11 +34,18 @@ for line in program_lines:
         string_literal = ' '.join(parts[1:])[1:-1]
         program.append(string_literal)
         token_counter += 1
-    elif opcode == "JUMP.EQ.0":
+    elif opcode == "JUMP.EQ.0": # Checks if top of stack is equal to 0
 
         label = parts[1]
         program.append(label)
         token_counter += 1
+    elif opcode == "JUMP.GT.0": # Checks if top of stack is greater than 0
+
+        label = parts[1]
+        program.append(label)
+        token_counter += 1
+     # Checks the entered operand for multiplication, division, addition and subtraction respectively (WIP)
+    
 
 class Stack:
     
@@ -72,6 +79,14 @@ while program[pc] != "HALT":
         stack.push(number)
     elif opcode == "POP":
         stack.pop()
+    elif opcode == "MULT":
+        a = stack.pop()
+        b = stack.pop()
+        stack.push(a*b)
+    elif opcode == "DIV":
+        a = stack.pop()
+        b = stack.pop()
+        stack.push(b/a)
     elif opcode == "ADD":
         a = stack.pop()
         b = stack.pop()
@@ -97,3 +112,34 @@ while program[pc] != "HALT":
             pc = label_traker[program[pc]]
         else:
             pc += 1
+    elif opcode == "RETURN":
+        number = stack.top()
+        print(number)
+
+
+
+'''
+Test Files
+
+Test by typing python (or python 3) commands into the terminal when running
+python3 interpreter.py (test file name).oll
+Enter variables for READ calls
+Verify intended output
+
+equaltest.oll
+
+Enter 2 integer
+Returns "not equal" if they are unequal, prints "equal" otherwise 
+(Checks if second variable - first variable is equal to 0)
+
+eventtest.oll
+
+Enter 1 integer
+Returns "odd" if the number is odd, prints "even" otherwise
+(Subtracts the number you enter by 2 until you reach 0, proving the number even, or until you are below 0, returning an odd number)
+
+tripletest.oll
+
+Enter 1 integer
+Returns the integer you entered multiplied by 3
+'''
