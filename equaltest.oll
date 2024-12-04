@@ -1,3 +1,4 @@
+PRINT "Enter two integers"
 READ
 READ
 SUB

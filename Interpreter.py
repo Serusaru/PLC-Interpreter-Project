@@ -44,7 +44,6 @@ for line in program_lines:
         label = parts[1]
         program.append(label)
         token_counter += 1
-     # Checks the entered operand for multiplication, division, addition and subtraction respectively (WIP)
     
 
 class Stack:

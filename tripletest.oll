@@ -1,5 +1,15 @@
+PRINT "Enter integer:"
 READ
+PRINT "Tripled Integer:"
 PUSH 3
 MULT
+RETURN
+PRINT "Original number:"
+PUSH 3
+DIV
+RETURN
+PRINT "Original number + 3:"
+PUSH 3
+ADD
 RETURN
 HALT
