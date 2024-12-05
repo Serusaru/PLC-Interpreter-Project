@@ -71,47 +71,47 @@ while program[pc] != "HALT":
     opcode = program[pc]
     pc += 1
 
-    if opcode == "PUSH":
+    if opcode == "PUSH": # Appends a value to the stack
         number = program[pc]
         pc += 1
 
         stack.push(number)
-    elif opcode == "POP":
+    elif opcode == "POP": # Removes the top value of the stack and holds it for usage
         stack.pop()
-    elif opcode == "MULT":
+    elif opcode == "MULT": # Multiplies the top two integers in the stack
         a = stack.pop()
         b = stack.pop()
         stack.push(a*b)
-    elif opcode == "DIV":
+    elif opcode == "DIV": # Divides the second highest integer in the stack by the top integer in the stack
         a = stack.pop()
         b = stack.pop()
         stack.push(b/a)
-    elif opcode == "ADD":
+    elif opcode == "ADD": # Adds the top two integers in the stack
         a = stack.pop()
         b = stack.pop()
         stack.push(a+b)
-    elif opcode == "SUB":
+    elif opcode == "SUB": # Subtracts the second highest integer in the stack by the top integer in the stack
         a = stack.pop()
         b = stack.pop()
         stack.push(b-a)
-    elif opcode == "PRINT":
+    elif opcode == "PRINT": # Prints the given string literal in the terminal
         string_literal = program[pc]
         pc += 1 
         print(string_literal)
-    elif opcode == "READ":
+    elif opcode == "READ": # Prompts user input
         number = int(input())
         stack.push(number)
-    elif opcode == "JUMP.EQ.0":
+    elif opcode == "JUMP.EQ.0": # Conditonal to check if the top value of the stack is equal to 0
         number = stack.top()
         if number == 0:
             pc = label_traker[program[pc]]
-    elif opcode == "JUMP.GT.0":
+    elif opcode == "JUMP.GT.0": # Conditonal to check if the top value of the stack is greater than 0
         number = stack.top()
         if number > 0:
             pc = label_traker[program[pc]]
         else:
             pc += 1
-    elif opcode == "RETURN":
+    elif opcode == "RETURN": # Returns the top value of the stack in the terminal
         number = stack.top()
         print(number)
 
