@@ -140,5 +140,5 @@ Returns "odd" if the number is odd, prints "even" otherwise
 tripletest.oll
 
 Enter 1 integer
-Returns the integer you entered multiplied by 3
+Returns the integer you entered multiplied by 3, then the original integer (as a result of dividing by 3), then the original number + 3
 '''
